@@ -1,7 +1,7 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 module.exports = {
-  entry: './app/index.js',
+  entry: './app/index.jsx',
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'front'),
@@ -17,7 +17,8 @@ module.exports = {
         ],
         loader: 'babel-loader',
         query: {
-          presets: ['env', 'es2015'],
+          presets: ['env', 'react', 'es2015'],
+          plugins: ['transform-object-rest-spread'],
         },
       },
     ],
@@ -25,6 +26,7 @@ module.exports = {
   devServer: {
     proxy: {
       '/api': 'http://localhost:3000',
+      '/socket.io': 'http://localhost:3000',
     },
   },
   plugins: [
