@@ -11,6 +11,8 @@ import reducers from './reducers';
 
 const store = createStore(reducers);
 
+// Allow for the server to dispatch actions.
+// All the state is updated by the server, the client just presents it.
 socket.on('dispatch', action => store.dispatch(action));
 
 import App from './components/App';

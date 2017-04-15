@@ -6,6 +6,7 @@ import YouTube from './YouTube';
 
 class App extends Component {
   render() {
+    // routing
     switch (this.props.view) {
       case 'youtube':
         return (

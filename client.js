@@ -1,5 +1,7 @@
+// A wrapper over socket.io that dispatches the correct actions
 class Client {
   constructor(io) {
+    // helper function
     this.dispatch = (type, data) =>
       io.emit('dispatch', Object.assign({type}, data));
   }
