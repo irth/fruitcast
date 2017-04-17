@@ -10,7 +10,11 @@ function viewReducer(state = initialView, action) {
   }
 }
 
-const initialStream = {data: {}, state: 'paused'};
+const initialStream = {
+  data: {},
+  state: 'paused',
+  volume: 100,
+};
 function streamReducer(state = initialStream, action) {
   console.log(action);
   switch (action.type) {
@@ -24,6 +28,12 @@ function streamReducer(state = initialStream, action) {
       return {
         ...state,
         state: action.state,
+      };
+
+    case 'SET_STREAM_VOLUME':
+      return {
+        ...state,
+        volume: action.volume,
       };
 
     default:

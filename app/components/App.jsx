@@ -13,6 +13,7 @@ class App extends Component {
           <YouTube
             id={this.props.stream.data.id}
             state={this.props.stream.state}
+            volume={this.props.stream.volume}
           />
         );
       default:
