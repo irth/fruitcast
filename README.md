@@ -4,7 +4,7 @@
 The FruitCast project aims to provide a simple app that allows to use a Raspberry Pi (therefore *Fruit*Cast) connected to a TV as a device you can cast things to (videos, music, etc.).
 
 ## Features
-* You can play a youtube video without being able to control it. That's it.
+* You can play/pause/stop a youtube video and set its volume. That's it.
 
 ## Planned features
 * Support multiple video providers (`quvi`? `youtube-dl`?)
