@@ -22,5 +22,28 @@ You run a server on a Pi and point Chromium in kiosk mode to it. (I plan on maki
 
 Once the server is running, it exposes an API that allows to control FruitCast. The API then can be called for example by a chrome extension, or your own bash script if you're into that.
 
+## I want to try it anyway.
+Well, I can't stop you.  
+* `git clone` the repo
+* run `npm install`
+* run `npm run dev`
+* point your browser to `http://localhost:8080`
+* make API requests.
+
+If you have [HTTPie](https://httpie.org/) installed (which I recommend, it's really cool), try out the following:
+
+```bash
+    # Load the player
+    http POST :8080/api/stream/youtube id=dQw4w9WgXcQ  # this song is my jam
+    
+    # Control the playback
+    http POST :8080/api/controls/play
+    http POST :8080/api/controls/pause
+    http POST :8080/api/controls/stop
+
+    # Control the volume (value from 0 to 100)
+    http POST :8080/api/controls/volume volume=42  # JSON body, {"volume": 42}
+```
+
 ## Your code is really ugly
 I am aware of that. I am learning. Feel free to drop a pull request though.
