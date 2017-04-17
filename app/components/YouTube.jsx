@@ -19,7 +19,7 @@ export default class YouTube extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    this.syncPlayerState(newProps.state);
+    this.syncPlayerState(newProps);
   }
 
   render() {
@@ -39,10 +39,11 @@ export default class YouTube extends Component {
     );
   }
 
-  syncPlayerState(state) {
+  syncPlayerState(props) {
     const player = this.state.player;
     if (this.state.player == null) return;
-    switch (state) {
+
+    switch (props.state) {
       case 'playing':
         player.playVideo();
         break;
@@ -53,10 +54,12 @@ export default class YouTube extends Component {
         player.stopVideo();
         break;
     }
+
+    player.setVolume(props.volume);
   }
 
   _onReady(e) {
     this.setState({player: e.target});
-    this.syncPlayerState(this.props.state);
+    this.syncPlayerState(this.props);
   }
 }

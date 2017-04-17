@@ -22,6 +22,10 @@ class Client {
   stop() {
     this.dispatch('SET_STREAM_STATE', {state: 'stopped'});
   }
+
+  setVolume(volume) {
+    this.dispatch('SET_STREAM_VOLUME', {volume});
+  }
 }
 
 module.exports = io => new Client(io);

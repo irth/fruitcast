@@ -4,7 +4,7 @@ module.exports = client => ({
     '/controls/play': () => client.play(),
     '/controls/pause': () => client.pause(),
     '/controls/stop': () => client.stop(),
-    '/test': d => JSON.stringify(d),
+    '/controls/volume': json => client.setVolume(json.volume),
   },
   get: {
     '/': () => 'Welcome to FruitCast!',
