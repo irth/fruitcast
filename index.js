@@ -13,7 +13,13 @@ const client = require('./client')(require('socket.io')(server));
 const registerRouteHandler = (method, url, handler) =>
   app[method](`/api${url}`, (req, res) => {
     const ret = handler(req.body);
-    ret ? res.send(ret) : res.send('OK');
+    if (ret != null) {
+      if (ret instanceof Promise) {
+        ret.then(retVal => res.send(retVal));
+      } else {
+        res.send(ret);
+      }
+    } else res.send('OK')
   });
 
 // Helper function to register a dict of api methods with helper
