@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 
 import {connect} from 'react-redux';
 
+import Home from './Home';
 import YouTube from './YouTube';
 
 class App extends Component {
@@ -17,7 +18,7 @@ class App extends Component {
           />
         );
       default:
-        return <h1>Hello FruitCast!</h1>;
+        return <Home />;
     }
   }
 }
